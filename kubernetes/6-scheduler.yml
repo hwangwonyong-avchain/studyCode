@@ -10,4 +10,4 @@ spec:
       image: nginx
       ports:
         - containerPort: 8080
-  nodeName: node02
+  nodeName: minikube-m02
