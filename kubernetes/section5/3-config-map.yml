@@ -39,3 +39,22 @@ spec:
         - name: app-config-volume
           configMap:
             name: app-config
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata: 
+  labels:
+    name: webapp-color
+  name: webapp-color
+spec:
+  containers:
+    - env:
+      - name: APP_COLOR # 환경변수 명
+        valueFrom: # 환경변수 값을
+          configMapKeyRef: # configMap으로 가져온다.
+            name: webapp-config-map # 이 configMap의
+            key: APP_COLOR # APP_COLOR로부터
+      image: wonyongg/webapp-color
+      name: webapp-color
